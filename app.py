@@ -66,5 +66,13 @@ def perform_rec():
                                seek_time=skt, you_vid=vid_id, sub=sub1)
 
 
+@app.route("/results", methods=['GET'])
+def get_results():
+    print("call for perform")
+    if request.method == 'GET':
+        score = request.args.get('score')
+        return render_template("results.html", score=score)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
