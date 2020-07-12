@@ -1,6 +1,3 @@
-# DLearn
-DLearn, a deep learning based application that helps you better understand online video lectures by utilizing your facial expressions to determine if you are confused or stressed while watching a video, and provide you with topic recommendations that you might not have understood.
-
 # Components
 1. CNN model : Costom trained Convolution Neural Net for facial expression/emotion recognition trained on [FER-2013 dataset](https://www.kaggle.com/c/challenges-in-representation-learning-facial-expression-recognition-challenge/data). Certain classes were merged to create new expressions so that there are 4 classes HAPPY, NEUTRAL, CONFUSED, STRESSED.
 [Trained model](https://drive.google.com/open?id=1MNhezLab0lH2n4GLV4wb8icycJKZpggR) for the CNN is available for download !
@@ -19,9 +16,3 @@ DLearn, a deep learning based application that helps you better understand onlin
 3. OpenCV: face-detection.
 4. YouTube transcript API: To get transcripts for a given video.
 5. Python ,Javascript and HTML.
-
-# Awards
-"Most technically difficult HACK" - [HACKOH/IO-2019](https://hack.osu.edu/2019/#about), NOV 2-3 (THE OHIO STATE UNIVERSITY)
-
-# Creators: HACK_FORCE_ONE
-## [Jaydeep Thik](https://www.linkedin.com/in/jaydeep-thik-7a524b12a/ "Jaydeep's LinkedIn"), [Vasudev Purandare](https://www.linkedin.com/in/vasudev-purandare/ "Vasudev's LinkedIn")
