@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-@authors: jaydeep thik , Vasudev Purandare
-"""
 import tensorflow as tf
 from tensorflow import keras
 #from tensorflow.keras.models import Sequential

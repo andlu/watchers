@@ -13,9 +13,6 @@
       var tm='';
       
 
-
-      
-
       // 3. This function creates an <iframe> (and YouTube player)
       //    after the API code downloads.
       var player;
@@ -42,19 +39,15 @@
       //    the player should play for six seconds and then stop.
       var done = false;
       function onPlayerStateChange(event) {
-	     
         if (event.data == YT.PlayerState.PLAYING && !done) {
           if(first_launch){
 	         document.getElementById("fm1").submit()
-
            first_launch=false
           }
           setTimeout(stopVideo, 6000000);
           done = true;
          
         }
-         
-	
       }
 
 
@@ -70,7 +63,12 @@ function abc()
 {
   temp=player.getCurrentTime();
    //window.sessionStorage.setItem("iden",temp);
-    confrim("Do u want to?");
+    confirm("Do u want to?");
+
+}
+
+function call_cam()
+{
 
 }
 
@@ -91,35 +89,31 @@ function loadingPage(){
   }
 
 }
-
-   </script>
-
+</script>
 
 
 </head >
- <body onload="loadingPage()" onbeforeunload="abc()" background="/static/bg1.jpg" style=""><center>
-
+ 
+ <body onload="loadingPage()" onbeforeunload="abc()" background="/static/bg1.jpg" style="">
+  <center>
     <!-- 1. The <iframe> (and video player) will replace this <div> tag. -->
     <div id="player" style="background-color: lightblue;" width=100% height=200%>
-</div>
+    </div>
+    
+    <form action="{{ url_for('launch') }}"  id="fm1">
+      <input type ='hidden' id="s2" name='subject' value='{{sub}}'/>
+      <input type='hidden' id="v2" name='video_id' value='{{you_vid}}'/>
+      <input type='hidden' id="seek2" name='seek_time' value={{ seek_time }}/>
+    </form>
 
-<form action="{{ url_for('launch') }}"  id="fm1">
-   <input type ='hidden' id="s2" name='subject' value='{{sub}}'/>
-  <input type='hidden' id="v2" name='video_id' value='{{you_vid}}'/>
-  <input type='hidden' id="seek2" name='seek_time' value={{ seek_time }}/>
-
-
-</form>
-
-<form method="GET" action=""  id="url_for_rec" enctype = "multipart/form-data">
+    <form method="GET" action=""  id="url_for_rec" enctype = "multipart/form-data">
   <input type ='hidden' id="s1" name='subject' value='{{sub}}'/>
   <input type='hidden' id="v1" name='video_id' value='{{you_vid}}'/>
   <input type='hidden' id="seek1" name='seek_time' value={{ seek_time }}/>
+  <input id="state_id" type="hidden" value="{{ state }}">
 
 
-<input id="state_id" type="hidden" value="{{ state }}">
-
- <div id="player" style="background-color: lightblue" width=90% height=200%>
+    <div id="player" style="background-color: lightblue" width=90% height=200%>
  <br>
  <h3><i>Additional Notes</i></h3>
 
@@ -133,6 +127,7 @@ function loadingPage(){
 
 {% endif %}
 </div>
+
 </center>
       </body>
 </html>

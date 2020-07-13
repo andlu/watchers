@@ -1,15 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Sat Nov  2 18:27:46 2019
-
-@authors: jaydeep thik , Vasudev Purandare
-
-"""
 
 import flask
 import os
 import pandas as pd
-# import tk_webcam as tk
 import cv_cam_facial_expression as tk
 import Rec as recmod
 import scipy
@@ -33,10 +26,7 @@ def home():
     if request.method == 'GET':
         sub1 = request.args.get('subject')
         video_id = request.args.get('video_id')
-        print(sub1)
-        print(video_id)
-        return render_template("new.html", state="NONE", wl="NONE",
-                               seek_time="NONE", sub=sub1, you_vid=video_id)
+        return render_template("new.html", state="NONE", wl="NONE", seek_time="NONE", sub=sub1, you_vid=video_id)
 
 
 @app.route("/launch", methods=['GET', 'POST'])
@@ -44,11 +34,8 @@ def launch():
     if request.method == 'GET':
         sub1 = request.args.get('subject')
         video_id = request.args.get('video_id')
-        state, seek_time = tk.cam_run()
-        print("SEEK :", seek_time)
-        print(video_id, sub1)
-        return render_template("new.html", state=state, wl="NONE",
-                               seek_time=seek_time, you_vid=video_id, sub=sub1)
+        tk.cam_run()
+        return render_template("new.html", state="None", wl="NONE", seek_time="None", you_vid=video_id, sub=sub1)
 
 
 @app.route("/rec", methods=['GET'])
